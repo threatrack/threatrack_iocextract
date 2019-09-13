@@ -1,0 +1,2 @@
+include threatrack_iocextract/patterns/*.csv
+include LICENSE
