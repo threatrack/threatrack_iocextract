@@ -4,6 +4,22 @@ Extracts IOCs (and other patterns) from text.
 
 ## How do I use it?
 
+### Install
+
+- from `https://pypi.org` via `pip`:
+
+```
+pip install threatrack_iocextract
+```
+
+- via `setup.py`:
+
+```
+sudo python setup.py install
+```
+
+### Usage
+
 ```python
 import threatrack_iocextract
 

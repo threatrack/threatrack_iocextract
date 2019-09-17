@@ -1,4 +1,4 @@
-from threatrack_iocextract.threatrack_iocextract import load_patterns, refang, extract, extract_all, extract_smart
+from threatrack_iocextract.iocextract import load_patterns, refang, extract, extract_all
 
 name = "threatrack_iocextract"
 

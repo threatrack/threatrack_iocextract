@@ -59,11 +59,11 @@ def extract_all(text):
 	return extract(refang(text))
 
 
-def extract_smart(text_de):
-	text_re = refang(text_de)
-	iocs = extract(text_re)
-
-	return iocs
+#def extract_smart(text_de):
+#	text_re = refang(text_de)
+#	iocs = extract(text_re)
+#	#TODO: implement
+#	return iocs
 
 
 # init patterns
