@@ -69,6 +69,10 @@ https://blog.malwarebytes.com/
 9.9.9.9:055
 12313.123.43.233242
 
+### CIDRs
+
+5.4.3.2/24
+
 ---
 
 ## URL

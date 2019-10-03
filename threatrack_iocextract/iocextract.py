@@ -13,11 +13,11 @@ def load_patterns(path=os.path.join(os.path.abspath(os.path.dirname(__file__)),"
 		return '\n'.join(text)
 
 	def expand(pattern, patterns):
-		for m in re.findall(r'(?P<replace>%%file:(?P<file>[a-z\.]+)%%)', pattern):
+		for m in re.findall(r'(?P<replace>%%file:(?P<file>[A-Za-z0-9\.]+)%%)', pattern):
 			lines = read_patterns(m[1]).split('\n')
 			sp = '(?:' + '|'.join(lines) + ')'
 			pattern = pattern.replace(m[0], sp)
-		for m in re.findall(r'(?P<replace>%%pattern:(?P<pattern>[a-z\.]+)%%)', pattern):
+		for m in re.findall(r'(?P<replace>%%pattern:(?P<pattern>[A-Za-z0-9\.]+)%%)', pattern):
 			pattern = pattern.replace(m[0], '(?:' + patterns[m[1]].pattern + ')')
 		return pattern
 
