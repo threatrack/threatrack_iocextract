@@ -75,7 +75,7 @@ load_patterns()
 if __name__=="__main__":
 	import sys
 
-	iocs = extract(  open(sys.argv[1],'r').read()  )
+	iocs = extract_all(  open(sys.argv[1],'r').read()  )
 
 	print('# IOCs')
 	for ioc_type, ioc_values in iocs.items():

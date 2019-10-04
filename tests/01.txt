@@ -302,4 +302,71 @@ test@example(dot)com
     this\ still\"not\\allowed@example.com (even if escaped (preceded by a backslash), spaces, quotes, and backslashes must still be contained by quotes)
     1234567890123456789012345678901234567890123456789012345678901234+x@example.com (local part is longer than 64 characters)
 
+---
+
+# Snort
+
+5. Signatures
+Snort Signatures – TLP WHITE
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - ScanBox
+and Targetted Watering Holes Content (plugin_pdf_ie())";
+flow:established,from_server; file_data; content:"plugin_pdf_ie()"; classtype:trojanactivity; reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanboxframework-whos-affected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD;
+sid:xxxxxx; rev:2015021901;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - ScanBox
+Watering Hole Content (.item(0).appendChild(iframe_tag))";
+flow:established,from_server; file_data; content:".item(0).appendChild(iframe_tag)";
+classtype:trojan-activity;
+reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanbox-framework-whosaffected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD; sid:xxxxxx;
+rev:2015021901;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - ScanBox
+and Targetted Watering Holes Content (var version\;var ax\;var e\;try{axo=new
+ActiveXObject)"; flow:established,from_server; file_data; content:"var version\;var
+ax\;var e\;try{axo=new ActiveXObject"; classtype:trojan-activity;
+reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanbox-framework-whosaffected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD; sid:xxxxxx;
+rev:2015021901;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - ScanBox
+Watering Hole Content
+(document.getElementsByTagName('head').item(0).appendChild(form_tag)\;)";
+flow:established,from_server; file_data;
+content:"document.getElementsByTagName('head').item(0).appendChild(form_tag)\;";
+classtype:trojan-activity;
+reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanbox-framework-whosaffected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD; sid:xxxxxx;
+rev:2015021901;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - ScanBox
+Watering Hole Content (return ((!a) ? 'x-': a) + Math.floor(Math.random() *
+99999)\;)"; flow:established,from_server; file_data; content:"return ((!a) ? 'x-': a)
++ Math.floor(Math.random() * 99999)\;"; classtype:trojan-activity;
+reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanbox-framework-whosaffected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD; sid:xxxxxx;
+rev:2015021901;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"--[PwC CTD] -- MultiGroup - TH3BUG
+and Non-Targetted Groups Watering Hole Code (Chr(CInt(ns(i)) Xor n))";
+flow:established,from_server; file_data; content:"Chr(CInt(ns(i)) Xor n)";
+classtype:trojan-activity;
+reference:url,pwc.blogs.com/cyber_security_updates/2014/10/scanbox-framework-whosaffected-and-whos-using-it-1.html; metadata:tlp WHITE,author CDD; sid:xxxxxx;
+rev:2015021901;)
+
+---
+
+# MAC
+
+01:23:45:67:89:AB
+
+# IPv6
+
+1:2:3:4:5:6:7:8
+1::                              1:2:3:4:5:6:7::
+1::8             1:2:3:4:5:6::8  1:2:3:4:5:6::8
+1::7:8           1:2:3:4:5::7:8  1:2:3:4:5::8
+1::6:7:8         1:2:3:4::6:7:8  1:2:3:4::8
+1::5:6:7:8       1:2:3::5:6:7:8  1:2:3::8
+1::4:5:6:7:8     1:2::4:5:6:7:8  1:2::8
+1::3:4:5:6:7:8   1::3:4:5:6:7:8  1::8  
+::2:3:4:5:6:7:8  ::2:3:4:5:6:7:8 ::8       ::     
+fe80::7:8%eth0   fe80::7:8%1     (link-local IPv6 addresses with zone index)
+::255.255.255.255   ::ffff:255.255.255.255  ::ffff:0:255.255.255.255  (IPv4-mapped IPv6 addresses and IPv4-translated addresses)
+2001:db8:3:4::192.0.2.33  64:ff9b::192.0.2.33 (IPv4-Embedded IPv6 Address)
+
+
+
+
 

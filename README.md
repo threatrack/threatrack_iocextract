@@ -147,12 +147,8 @@ Unfortunately, it is very hard to fix this. **Suggestions are welcome.**
 
 ## TODO
 
-Patterns for:
-
-- ipv6
-- mac
-
-
-
+- Fix IPv6 pattern, it overlaps with MAC addresses
+- Fix Hash and Bitcoin overlap
+- Increase whitelist
 
 
