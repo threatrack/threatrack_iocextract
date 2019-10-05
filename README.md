@@ -152,4 +152,6 @@ Unfortunately, it is very hard to fix this. **Suggestions are welcome.**
 - Increase whitelist
 - Fix MAC pattern to not match on fingerprints
 - Fix extract_all() refanging breaks YARA extraction. Need to find a smart solution to extracting defanged IOCs. :(
+- Actually use `whitelist.csv`
+
 
