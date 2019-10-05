@@ -150,5 +150,6 @@ Unfortunately, it is very hard to fix this. **Suggestions are welcome.**
 - Fix IPv6 pattern, it overlaps with MAC addresses
 - Fix Hash and Bitcoin overlap
 - Increase whitelist
-
+- Fix MAC pattern to not match on fingerprints
+- Fix extract_all() refanging breaks YARA extraction. Need to find a smart solution to extracting defanged IOCs. :(
 

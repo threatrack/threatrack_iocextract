@@ -71,19 +71,11 @@ load_patterns()
 
 
 # a small test application
-# usage: python3 threatrack_iocextract.py ../tests/01.txt
+# usage: python3 iocextract.py ../tests/01.txt <yara|snort|ipv4|...>
 if __name__=="__main__":
 	import sys
 
-	iocs = extract_all(  open(sys.argv[1],'r').read()  )
+	iocs = extract( open(sys.argv[1],'r').read() )
 
-	print('# IOCs')
-	for ioc_type, ioc_values in iocs.items():
-		print('## '+ioc_type)
-		for ioc in ioc_values:
-			print(ioc)
-
-	print("---")
-	print("Generated with threatrack_iocextract.py")
-
+	print("\n".join(iocs[sys.argv[2]]))
 
