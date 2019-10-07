@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="threatrack_iocextract",
-	version="0.0.6",
+	version="0.0.7",
 	author="",
 	author_email="",
 	description="IOC extractor",
