@@ -144,6 +144,8 @@ would refangle to `http://example.com/foo.bar/`.
 
 Unfortunately, it is very hard to fix this. **Suggestions are welcome.**
 
+**Possible mitigation:** Add IOC specific refangs. So, e.g., only when ectracting email IOCs
+the `s/at/@/` refang gets applied.
 
 ## TODO
 
@@ -152,6 +154,6 @@ Unfortunately, it is very hard to fix this. **Suggestions are welcome.**
 - Increase whitelist
 - Fix MAC pattern to not match on fingerprints
 - Fix extract_all() refanging breaks YARA extraction. Need to find a smart solution to extracting defanged IOCs. :(
-- Actually use `whitelist.csv`
+- Add IOC sepcific refangs
 
 

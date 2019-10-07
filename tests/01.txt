@@ -29,7 +29,9 @@ https://medium.com/
 https://ti.qianxin.com/
 https://www.nytimes.com/
 https://research.checkpoint.com/
+https://research.checkpoint.com
 https://blog.malwarebytes.com/
+https://blog.malwarebytes.com
 
 ---
 
@@ -241,7 +243,23 @@ import "pe" rule MetadataExample:test foobar blah
 ### Other one
 
 ```
+import "pe"
+
+  // this is a comment
+
 rule foo {
+	strings:
+		$a = "foobar" ascii wide fullword
+	condition:
+		all of them
+}
+
+
+import "pe"
+
+  /* this is also a comment */
+
+rule bar {
 	strings:
 		$a = "foobar" ascii wide fullword
 	condition:

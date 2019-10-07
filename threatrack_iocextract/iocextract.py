@@ -3,6 +3,7 @@ import re
 
 patterns = {}
 defangs = []
+hostname_whitelist = []
 
 def load_patterns(path=os.path.join(os.path.abspath(os.path.dirname(__file__)),"patterns/")):
 	def read_patterns(relpath):
@@ -38,6 +39,9 @@ def load_patterns(path=os.path.join(os.path.abspath(os.path.dirname(__file__)),"
 	for defang in defang_conf:
 		defangs.append(defang.split('\t'))
 
+	global hostname_whitelist
+	hostname_whitelist = read_patterns('hostname_whitelist.csv').lower().split('\n')
+
 
 def refang(text):
 	for d,r in defangs:
@@ -59,6 +63,28 @@ def extract_all(text):
 	return extract(refang(text))
 
 
+def whitelist(iocs):
+	hostnames = [h.lower() for h in iocs['hostname']]
+	urls = []
+	for url in iocs['url']:
+		whitelisted = False
+		for w in hostname_whitelist:
+			# if a whitelisted hostname is early in the url remove it
+			# this avoids matching https://evil.com/http://accounts.google.com/
+			pos = url.lower().find("://"+w+"/")
+			end = url.lower().endswith("://"+w)
+			if pos >= 2 or end:
+				whitelisted = True
+				break
+		if not whitelisted:
+			urls.append(url)
+
+	iocs['url'] = urls
+	iocs['hostname'] = list(set(hostnames) - set(hostname_whitelist))
+
+	return iocs
+
+
 #def extract_smart(text_de):
 #	text_re = refang(text_de)
 #	iocs = extract(text_re)
@@ -76,6 +102,7 @@ if __name__=="__main__":
 	import sys
 
 	iocs = extract( open(sys.argv[1],'r').read() )
+	iocs = whitelist(iocs)
 
 	print("\n".join(iocs[sys.argv[2]]))
 
