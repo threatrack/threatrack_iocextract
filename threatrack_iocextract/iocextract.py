@@ -49,14 +49,15 @@ def refang(text):
 	return text
 
 
-def extract(text):
-	iocs = {}
+def extract(text,iocs=['all']):
+	extracted_iocs = {}
 	for name, pattern in patterns.items():
 		if name.startswith('.'):
 			continue
-		iocs[name] =  list(set(re.findall(pattern, text)))
+		if name in iocs or 'all' in iocs:
+			extracted_iocs[name] =  list(set(re.findall(pattern, text)))
 
-	return iocs
+	return extracted_iocs
 
 
 def extract_all(text):
@@ -64,23 +65,42 @@ def extract_all(text):
 
 
 def whitelist(iocs):
-	hostnames = [h.lower() for h in iocs['hostname']]
-	urls = []
-	for url in iocs['url']:
-		whitelisted = False
-		for w in hostname_whitelist:
-			# if a whitelisted hostname is early in the url remove it
-			# this avoids matching https://evil.com/http://accounts.google.com/
-			pos = url.lower().find("://"+w+"/")
-			end = url.lower().endswith("://"+w)
-			if pos >= 2 or end:
-				whitelisted = True
-				break
-		if not whitelisted:
-			urls.append(url)
+	if 'hostname' in iocs:
+		hostnames = [h.lower() for h in iocs['hostname']]
+		iocs['hostname'] = list(set(hostnames) - set(hostname_whitelist))
 
-	iocs['url'] = urls
-	iocs['hostname'] = list(set(hostnames) - set(hostname_whitelist))
+	if 'url' in iocs:
+		urls = []
+		for url in iocs['url']:
+			whitelisted = False
+			for w in hostname_whitelist:
+				# if a whitelisted hostname is early in the url remove it
+				# this avoids matching:
+				# - https://evil.com/http://accounts.google.com
+				# - https://evil.com/http://accounts.google.com/
+				# - https://accounts.google.com.evil.com
+				pos1 = url.lower().find("://"+w+"/")
+				pos2 = url.lower().find("://"+w)
+				end = url.lower().endswith("://"+w)
+				if (pos1 >= 3 and pos1 <= 5) or (end and pos2 <= 5):
+					whitelisted = True
+					break
+			if not whitelisted:
+				urls.append(url)
+		iocs['url'] = urls
+
+	if 'email' in iocs:
+		emails = []
+		for email in iocs['email']:
+			whitelisted = False
+			for w in hostname_whitelist:
+				end = email.lower().endswith("@"+w)
+				if end:
+					whitelisted = True
+					break
+			if not whitelisted:
+				emails.append(email)
+		iocs['email'] = emails
 
 	return iocs
 
@@ -100,8 +120,12 @@ load_patterns()
 # usage: python3 iocextract.py ../tests/01.txt <yara|snort|ipv4|...>
 if __name__=="__main__":
 	import sys
+	text = open(sys.argv[1],'r').read()
+	if sys.argv[2] in {'hostname','url','ipv4','email'}:
+		# de-defang for specific iocs
+		text = refang(text)
 
-	iocs = extract( open(sys.argv[1],'r').read() )
+	iocs = extract( text, [sys.argv[2]] )
 	iocs = whitelist(iocs)
 
 	print("\n".join(iocs[sys.argv[2]]))
